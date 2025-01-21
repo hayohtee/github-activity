@@ -5,6 +5,7 @@ import "time"
 const (
 	watchEvent = "WatchEvent"
 	commitCommentEvent = "CommitCommentEvent"
+	createEvent = "CreateEvent"
 )
 
 // repo is a struct containing the id and the name of the github repository.
