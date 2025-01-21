@@ -78,6 +78,18 @@ func (g GitHubEvent) String() string {
 		return fmt.Sprintf("User %q made the %s public", g.Actor.DisplayLogin, g.Repo.Name)
 	case pullRequestEvent:
 		return fmt.Sprintf("User %q %s a pull request in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+	case pullRequestReviewEvent:
+		return fmt.Sprintf("User %q %s a pull request review in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+	case pullRequestReviewCommentEvent:
+		return fmt.Sprintf("User %q %s a pull request review comment in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+	case pullRequestReviewThreadEvent:
+		return fmt.Sprintf("User %q %s a comment thread on a pull request in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+	case pushEvent:
+		return fmt.Sprintf("User %q pushed %d commits to %s", g.Actor.DisplayLogin, g.Payload.Size, g.Repo.Name)
+	case releaseEvent:
+		return fmt.Sprintf("User %q %s a release in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+	case sponsorshipEvent:
+		return fmt.Sprintf("User %q %s a sponsorship listing", g.Actor.DisplayLogin, g.Payload.Action)
 	default:
 		return "Unsupported activity"
 	}
