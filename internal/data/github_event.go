@@ -3,10 +3,11 @@ package data
 import "time"
 
 const (
-	watchEvent = "WatchEvent"
+	watchEvent         = "WatchEvent"
 	commitCommentEvent = "CommitCommentEvent"
-	createEvent = "CreateEvent"
-	deleteEvent = "DeleteEvent"
+	createEvent        = "CreateEvent"
+	deleteEvent        = "DeleteEvent"
+	forkEvent          = "ForkEvent"
 )
 
 // repo is a struct containing the id and the name of the github repository.
