@@ -60,6 +60,8 @@ func (g GitHubEvent) String() string {
 		return fmt.Sprintf("User %q %s the repository %q", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	case commitCommentEvent:
 		return fmt.Sprintf("User %q %s commit comment in the repository %q", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+	case createEvent:
+		return fmt.Sprintf("Created a branch in %s", g.Repo.Name)
 	default:
 		return "Unsupported activity"
 	}
