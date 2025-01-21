@@ -1,5 +1,7 @@
 package data
 
+import "time"
+
 // repo is a struct containing the id and the name of the github repository.
 type repo struct {
 	ID   int64  `json:"id"`
@@ -10,4 +12,13 @@ type repo struct {
 type payload struct {
 	Size         int `json:"size"`
 	DistinctSize int `json:"distinct_size"`
+}
+
+// GitHubEvent is a struct containing all the information about a particular github event.
+type GitHubEvent struct {
+	Type      string    `json:"type"`
+	Repo      repo      `json:"repo"`
+	Payload   payload   `json:"payload"`
+	Public    bool      `json:"public"`
+	CreatedAt time.Time `json:"created_at"`
 }
