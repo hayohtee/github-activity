@@ -6,6 +6,7 @@ const (
 	watchEvent = "WatchEvent"
 	commitCommentEvent = "CommitCommentEvent"
 	createEvent = "CreateEvent"
+	deleteEvent = "DeleteEvent"
 )
 
 // repo is a struct containing the id and the name of the github repository.
