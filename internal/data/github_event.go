@@ -66,6 +66,8 @@ func (g GitHubEvent) String() string {
 		return fmt.Sprintf("Deleted a branch in %s", g.Repo.Name)
 	case forkEvent:
 		return fmt.Sprintf("User %q fork the %s", g.Actor.DisplayLogin, g.Repo.Name)
+	case gollumEvent:
+		return fmt.Sprintf("User %q created or updated a wiki page", g.Actor.DisplayLogin)
 	default:
 		return "Unsupported activity"
 	}
