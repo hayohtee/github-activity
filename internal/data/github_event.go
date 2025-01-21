@@ -9,7 +9,8 @@ const (
 	deleteEvent        = "DeleteEvent"
 	forkEvent          = "ForkEvent"
 	gollumEvent        = "GollumEvent"
-	issueCommentEvent  = "issueCommentEvent"
+	issueCommentEvent  = "IssueCommentEvent"
+	issuesEvent        = "IssuesEvent"
 )
 
 // repo is a struct containing the id and the name of the github repository.
