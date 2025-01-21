@@ -40,7 +40,7 @@ type payload struct {
 
 // actor is a struct containing the login and display_login name of an actor.
 type actor struct {
-	login        string `json:"login"`
+	Login        string `json:"login"`
 	DisplayLogin string `json:"display_login"`
 }
 
