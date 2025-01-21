@@ -68,6 +68,8 @@ func (g GitHubEvent) String() string {
 		return fmt.Sprintf("User %q fork the %s", g.Actor.DisplayLogin, g.Repo.Name)
 	case gollumEvent:
 		return fmt.Sprintf("User %q created or updated a wiki page", g.Actor.DisplayLogin)
+	case issueCommentEvent:
+		return fmt.Sprintf("User %q %s an issue comment in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	default:
 		return "Unsupported activity"
 	}
