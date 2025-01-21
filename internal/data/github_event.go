@@ -76,6 +76,8 @@ func (g GitHubEvent) String() string {
 		return fmt.Sprintf("User %q %s an invitation to %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	case publicEvent:
 		return fmt.Sprintf("User %q made the %s public", g.Actor.DisplayLogin, g.Repo.Name)
+	case pullRequestEvent:
+		return fmt.Sprintf("User %q %s a pull request in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	default:
 		return "Unsupported activity"
 	}
