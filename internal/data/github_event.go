@@ -35,6 +35,12 @@ type payload struct {
 	Action       string `json:"action"`
 }
 
+// actor is a struct containing the login and display_login name of an actor.
+type actor struct {
+	login        string `json:"login"`
+	DisplayLogin string `json:"display_login"`
+}
+
 // GitHubEvent is a struct containing all the information about a particular github event.
 type GitHubEvent struct {
 	Type      string    `json:"type"`
