@@ -3,14 +3,23 @@ package data
 import "time"
 
 const (
-	watchEvent         = "WatchEvent"
-	commitCommentEvent = "CommitCommentEvent"
-	createEvent        = "CreateEvent"
-	deleteEvent        = "DeleteEvent"
-	forkEvent          = "ForkEvent"
-	gollumEvent        = "GollumEvent"
-	issueCommentEvent  = "IssueCommentEvent"
-	issuesEvent        = "IssuesEvent"
+	watchEvent                    = "WatchEvent"
+	commitCommentEvent            = "CommitCommentEvent"
+	createEvent                   = "CreateEvent"
+	deleteEvent                   = "DeleteEvent"
+	forkEvent                     = "ForkEvent"
+	gollumEvent                   = "GollumEvent"
+	issueCommentEvent             = "IssueCommentEvent"
+	issuesEvent                   = "IssuesEvent"
+	memberEvent                   = "MemberEvent"
+	publicEvent                   = "PublicEvent"
+	pullRequestEvent              = "PullRequestEvent"
+	pullRequestReviewEvent        = "PullRequestReviewEvent"
+	pullRequestReviewCommentEvent = "PullRequestReviewCommentEvent"
+	pullRequestReviewThreadEvent  = "PullRequestReviewThreadEvent"
+	pushEvent                     = "PushEvent"
+	releaseEvent                  = "ReleaseEvent"
+	sponsorshipEvent              = "SponsorshipEvent"
 )
 
 // repo is a struct containing the id and the name of the github repository.
