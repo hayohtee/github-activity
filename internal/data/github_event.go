@@ -1,6 +1,9 @@
 package data
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 const (
 	watchEvent                    = "WatchEvent"
@@ -49,4 +52,13 @@ type GitHubEvent struct {
 	Public    bool      `json:"public"`
 	Actor     actor     `json:"actor"`
 	CreatedAt time.Time `json:"created_at"`
+}
+
+func (g GitHubEvent) String() string {
+	switch g.Type {
+	case watchEvent:
+		return fmt.Sprintf("")
+	default:
+		return "Unsupported activity"
+	}
 }
