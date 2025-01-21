@@ -58,6 +58,8 @@ func (g GitHubEvent) String() string {
 	switch g.Type {
 	case watchEvent:
 		return fmt.Sprintf("User %q %s the repository %q", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+	case commitCommentEvent:
+		return fmt.Sprintf("User %q %s commit comment in the repository %q", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	default:
 		return "Unsupported activity"
 	}
