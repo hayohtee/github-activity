@@ -47,5 +47,6 @@ type GitHubEvent struct {
 	Repo      repo      `json:"repo"`
 	Payload   payload   `json:"payload"`
 	Public    bool      `json:"public"`
+	Actor     actor     `json:"actor"`
 	CreatedAt time.Time `json:"created_at"`
 }
