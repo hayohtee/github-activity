@@ -20,8 +20,9 @@ type repo struct {
 
 // payload is a struct containing the size and distinct size of the commits.
 type payload struct {
-	Size         int `json:"size"`
-	DistinctSize int `json:"distinct_size"`
+	Size         int    `json:"size"`
+	DistinctSize int    `json:"distinct_size"`
+	Action       string `json:"action"`
 }
 
 // GitHubEvent is a struct containing all the information about a particular github event.
