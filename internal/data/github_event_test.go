@@ -109,5 +109,22 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "User \"hayohtee\" opened an issue in the repo example-user/example-repo",
+			githubEvent: GitHubEvent{
+				Type: issuesEvent,
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Payload: payload{
+					Action: "opened",
+				},
+			},
+		},
 	}
 }
