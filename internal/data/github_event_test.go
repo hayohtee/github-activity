@@ -221,5 +221,22 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "User \"hayohtee\" pushed 3 commits to the example-user/example-repo branch or tag",
+			githubEvent: GitHubEvent{
+				Type: pushEvent,
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+				Payload: payload{
+					Size: 3,
+				},
+			},
+		},
 	}
 }
