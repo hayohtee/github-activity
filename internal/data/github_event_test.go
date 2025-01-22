@@ -40,5 +40,33 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "User \"hayohtee\" created a branch or tag in the repo example-user/example-repo",
+			githubEvent: GitHubEvent{
+				Type: createEvent,
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+			},
+		},
+		{
+			expected: "User \"hayohtee\" deleted a branch or tag in the repo example-user/example-repo",
+			githubEvent: GitHubEvent{
+				Type: deleteEvent,
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+			},
+		},
 	}
 }
