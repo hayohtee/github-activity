@@ -24,7 +24,7 @@ func TestGitHubEvent(t *testing.T) {
 			},
 		},
 		{
-			expected: "User \"hayohtee\" created a comment to the commit in the example-user/example-repo",
+			expected: "User \"hayohtee\" created a comment to the commit in example-user/example-repo",
 			githubEvent: GitHubEvent{
 				Type: commitCommentEvent,
 				Repo: repo{
@@ -41,7 +41,7 @@ func TestGitHubEvent(t *testing.T) {
 			},
 		},
 		{
-			expected: "User \"hayohtee\" created a branch or tag in the example-user/example-repo",
+			expected: "User \"hayohtee\" created a branch or tag in example-user/example-repo",
 			githubEvent: GitHubEvent{
 				Type: createEvent,
 				Repo: repo{
@@ -55,7 +55,7 @@ func TestGitHubEvent(t *testing.T) {
 			},
 		},
 		{
-			expected: "User \"hayohtee\" deleted a branch or tag in the example-user/example-repo",
+			expected: "User \"hayohtee\" deleted a branch or tag in example-user/example-repo",
 			githubEvent: GitHubEvent{
 				Type: deleteEvent,
 				Repo: repo{
@@ -93,7 +93,7 @@ func TestGitHubEvent(t *testing.T) {
 			},
 		},
 		{
-			expected: "User \"hayohtee\" created a comment to an issue or pull request in the example-user/example-repo",
+			expected: "User \"hayohtee\" created a comment to an issue or pull request in example-user/example-repo",
 			githubEvent: GitHubEvent{
 				Type: issueCommentEvent,
 				Actor: actor{
@@ -110,7 +110,7 @@ func TestGitHubEvent(t *testing.T) {
 			},
 		},
 		{
-			expected: "User \"hayohtee\" opened an issue in the example-user/example-repo",
+			expected: "User \"hayohtee\" opened an issue in example-user/example-repo",
 			githubEvent: GitHubEvent{
 				Type: issuesEvent,
 				Actor: actor{
@@ -127,7 +127,7 @@ func TestGitHubEvent(t *testing.T) {
 			},
 		},
 		{
-			expected: "User \"hayohtee\" was added to the example-user/example-repo",
+			expected: "User \"hayohtee\" was added to example-user/example-repo",
 			githubEvent: GitHubEvent{
 				Type: memberEvent,
 				Actor: actor{
@@ -222,7 +222,7 @@ func TestGitHubEvent(t *testing.T) {
 			},
 		},
 		{
-			expected: "User \"hayohtee\" pushed 3 commits to the example-user/example-repo branch or tag",
+			expected: "User \"hayohtee\" pushed 3 commits to example-user/example-repo branch or tag",
 			githubEvent: GitHubEvent{
 				Type: pushEvent,
 				Repo: repo{
