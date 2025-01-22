@@ -238,5 +238,22 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "User \"hayohtee\" published a release in example-user/example-repo",
+			githubEvent: GitHubEvent{
+				Type: releaseEvent,
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+				Payload: payload{
+					Action: "published",
+				},
+			},
+		},
 	}
 }
