@@ -92,5 +92,22 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "User \"hayohtee\" created a comment to an issue or pull request in the repo example-user/example-repo",
+			githubEvent: GitHubEvent{
+				Type: issueCommentEvent,
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Payload: payload{
+					Action: "created",
+				},
+			},
+		},
 	}
 }
