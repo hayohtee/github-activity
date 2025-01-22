@@ -165,6 +165,26 @@ func TestGitHubEvent(t *testing.T) {
 					Login:        "hayohtee",
 					DisplayLogin: "hayohtee",
 				},
+				Payload: payload{
+					Action: "opened",
+				},
+			},
+		},
+		{
+			expected: "User \"hayohtee\" created a review in the pull request to example-user/example-repo",
+			githubEvent: GitHubEvent{
+				Type: pullRequestReviewEvent,
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+				Payload: payload{
+					Action: "created",
+				},
 			},
 		},
 	}
