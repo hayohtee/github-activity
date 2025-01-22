@@ -153,5 +153,19 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "User \"hayohtee\" opened a pull request in example-user/example-repo",
+			githubEvent: GitHubEvent{
+				Type: pullRequestEvent,
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+			},
+		},
 	}
 }
