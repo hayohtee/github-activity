@@ -68,5 +68,19 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "User \"hayohtee\" forks the repo example-user/example-repo",
+			githubEvent: GitHubEvent{
+				Type: forkEvent,
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+			},
+		},
 	}
 }
