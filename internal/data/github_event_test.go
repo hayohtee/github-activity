@@ -126,5 +126,22 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "User \"hayohtee\" was added to the example-user/example-repo repository",
+			githubEvent: GitHubEvent{
+				Type: memberEvent,
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Payload: payload{
+					Action: "added",
+				},
+			},
+		},
 	}
 }
