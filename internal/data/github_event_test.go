@@ -204,5 +204,22 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "User \"hayohtee\" resolved the comment thread in the review to the pull request in example-user/example-repo",
+			githubEvent: GitHubEvent{
+				Type: pullRequestReviewThreadEvent,
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+				Payload: payload{
+					Action: "resolved",
+				},
+			},
+		},
 	}
 }
