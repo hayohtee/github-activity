@@ -23,5 +23,22 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "User \"hayohtee\" created a comment to the commit in the repo example-user/example-repo",
+			githubEvent: GitHubEvent{
+				Type: commitCommentEvent,
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+				Payload: payload{
+					Action: "created",
+				},
+			},
+		},
 	}
 }
