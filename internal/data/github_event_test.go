@@ -273,4 +273,10 @@ func TestGitHubEvent(t *testing.T) {
 			},
 		},
 	}
+
+	for _, value := range testTable {
+		if value.githubEvent.String() != value.expected {
+			t.Errorf("expected %q but got %q instead\n", value.expected, value.githubEvent.String())
+		}
+	}
 }
