@@ -57,35 +57,35 @@ type GitHubEvent struct {
 func (g GitHubEvent) String() string {
 	switch g.Type {
 	case watchEvent:
-		return fmt.Sprintf("User %q %s the repository %q", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+		return fmt.Sprintf("User %q starred the %s", g.Actor.DisplayLogin, g.Repo.Name)
 	case commitCommentEvent:
-		return fmt.Sprintf("User %q %s commit comment in the repository %q", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+		return fmt.Sprintf("User %q %s a comment to the commit in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	case createEvent:
-		return fmt.Sprintf("Created a branch in %s", g.Repo.Name)
+		return fmt.Sprintf("User %q created a branch or tag in %s", g.Actor.DisplayLogin, g.Repo.Name)
 	case deleteEvent:
-		return fmt.Sprintf("Deleted a branch in %s", g.Repo.Name)
+		return fmt.Sprintf("User %q deleted a branch or tag in %s", g.Actor.DisplayLogin, g.Repo.Name)
 	case forkEvent:
-		return fmt.Sprintf("User %q fork the %s", g.Actor.DisplayLogin, g.Repo.Name)
+		return fmt.Sprintf("User %q forks the %s", g.Actor.DisplayLogin, g.Repo.Name)
 	case gollumEvent:
 		return fmt.Sprintf("User %q created or updated a wiki page", g.Actor.DisplayLogin)
 	case issueCommentEvent:
-		return fmt.Sprintf("User %q %s an issue comment in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+		return fmt.Sprintf("User %q %s a comment to an issue or pull request in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	case issuesEvent:
 		return fmt.Sprintf("User %q %s an issue in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	case memberEvent:
-		return fmt.Sprintf("User %q %s an invitation to %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+		return fmt.Sprintf("User %q was %s to %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	case publicEvent:
-		return fmt.Sprintf("User %q made the %s public", g.Actor.DisplayLogin, g.Repo.Name)
+		return fmt.Sprintf("%s was made public", g.Repo.Name)
 	case pullRequestEvent:
 		return fmt.Sprintf("User %q %s a pull request in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	case pullRequestReviewEvent:
-		return fmt.Sprintf("User %q %s a pull request review in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+		return fmt.Sprintf("User %q %s a review in the pull request to %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	case pullRequestReviewCommentEvent:
-		return fmt.Sprintf("User %q %s a pull request review comment in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+		return fmt.Sprintf("User %q %s a comment in a review to the pull request in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	case pullRequestReviewThreadEvent:
-		return fmt.Sprintf("User %q %s a comment thread on a pull request in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
+		return fmt.Sprintf("User %q %s the comment thread in the review to the pull request in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	case pushEvent:
-		return fmt.Sprintf("User %q pushed %d commits to %s", g.Actor.DisplayLogin, g.Payload.Size, g.Repo.Name)
+		return fmt.Sprintf("User %q pushed %d commits to %s branch or tag", g.Actor.DisplayLogin, g.Payload.Size, g.Repo.Name)
 	case releaseEvent:
 		return fmt.Sprintf("User %q %s a release in %s", g.Actor.DisplayLogin, g.Payload.Action, g.Repo.Name)
 	case sponsorshipEvent:
