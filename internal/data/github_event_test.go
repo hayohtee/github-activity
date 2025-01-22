@@ -143,5 +143,15 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "example-user/example-repo was made public",
+			githubEvent: GitHubEvent{
+				Type: publicEvent,
+				Repo: repo{
+					ID:   0,
+					Name: "example-user/example-repo",
+				},
+			},
+		},
 	}
 }
