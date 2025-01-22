@@ -82,5 +82,15 @@ func TestGitHubEvent(t *testing.T) {
 				},
 			},
 		},
+		{
+			expected: "User \"hayohtee\" created or updated a wiki page",
+			githubEvent: GitHubEvent{
+				Type: gollumEvent,
+				Actor: actor{
+					Login:        "hayohtee",
+					DisplayLogin: "hayohtee",
+				},
+			},
+		},
 	}
 }
