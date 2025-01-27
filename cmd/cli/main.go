@@ -31,55 +31,14 @@ func main() {
 	printGithubEvents(events)
 }
 
-// fetchGithubEvents fetches the GitHub events for a specified user.
+// fetchGithubEvents retrieves a list of GitHub events for a specified user.
+// It sends a GET request to the GitHub API to fetch the events.
 //
 // Parameters:
 //   - username: The GitHub username for which to fetch events.
+//   - page: The page number of the results to retrieve.
+//   - pageSize: The number of results per page.
 //
 // Returns:
-//   - A slice of GitHubEvent structs containing the fetched events.
+//   - A slice of GitHubEvent objects containing the fetched events.
 //   - An error if the request fails or the response cannot be decoded.
-//
-// The function makes an HTTP GET request to the GitHub API to retrieve the
-// events for the specified user. It sets the appropriate headers for the
-// request and decodes the JSON response into a slice of GitHubEvent structs.
-func fetchGithubEvents(username string) ([]data.GitHubEvent, error) {
-	var githubEvents []data.GitHubEvent
-
-	client := http.Client{
-		Timeout: 5 * time.Second,
-	}
-
-	apiUrl := fmt.Sprintf("https://api.github.com/users/%s/events", username)
-
-	req, err := http.NewRequest(http.MethodGet, apiUrl, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	req.Header.Set("Accept", "application/vnd.github+json")
-	req.Header.Set("X-GitHub-Api-Version", "2022-11-28")
-
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-
-	if err := json.NewDecoder(resp.Body).Decode(&githubEvents); err != nil {
-		return nil, err
-	}
-
-	return githubEvents, nil
-}
-
-// printGithubEvents prints a list of GitHub events to the standard output.
-// Each event is printed on a new line prefixed with a hyphen.
-//
-// Parameters:
-//   events ([]data.GitHubEvent): A slice of GitHubEvent objects to be printed.
-func printGithubEvents(events []data.GitHubEvent) {
-	fmt.Println("Output:")
-	for _, event := range events {
-		fmt.Printf("- %s\n", event)
-	}
-}
