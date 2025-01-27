@@ -17,6 +17,12 @@ func main() {
 	}
 
 	username := os.Args[1]
+
+	events, err := fetchGithubEvents(username)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err.Error())
+		os.Exit(1)
+	}
 }
 
 // fetchGithubEvents fetches the GitHub events for a specified user.
