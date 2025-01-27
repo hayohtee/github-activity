@@ -17,8 +17,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	page := flag.Int("page", 1, "The starting page for github events")
-	pageSize := flag.Int("page-size", 50, "The  maximum number of github events to fetch per page")
+	pageFlag := flag.NewFlagSet("", flag.ExitOnError)
+
+	page := pageFlag.Int("page", 1, "The starting page for github events")
+	pageSize := pageFlag.Int("page-size", 50, "The  maximum number of github events to fetch per page")
+	pageFlag.Parse(os.Args[2:])
 
 	username := os.Args[1]
 
@@ -75,7 +78,8 @@ func fetchGithubEvents(username string, page, pageSize int) ([]data.GitHubEvent,
 // Each event is printed on a new line prefixed with a hyphen.
 //
 // Parameters:
-//   events ([]data.GitHubEvent): A slice of GitHubEvent objects to be printed.
+//
+//	events ([]data.GitHubEvent): A slice of GitHubEvent objects to be printed.
 func printGithubEvents(events []data.GitHubEvent) {
 	fmt.Println("Output:")
 	for _, event := range events {
