@@ -18,6 +18,7 @@ func main() {
 	}
 
 	page := flag.Int("page", 30, "The starting page for github events")
+	pageSize := flag.Int("page-size", 50, "The  maximum number of github events to fetch per page")
 
 	username := os.Args[1]
 
