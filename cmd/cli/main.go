@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"net/http"
 	"os"
@@ -15,6 +16,8 @@ func main() {
 		fmt.Fprintln(os.Stderr, "no argument provided")
 		os.Exit(1)
 	}
+
+	page := flag.Int("page", 30, "The starting page for github events")
 
 	username := os.Args[1]
 
