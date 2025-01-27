@@ -5,7 +5,6 @@ Solution to [GitHub User Activity](https://roadmap.sh/projects/github-user-activ
 on [Roadmap.sh](https://roadmap.sh/).
 
 ## Supported Event Types
-- Event object common properties
 - CommitCommentEvent
 - CreateEvent
 - DeleteEvent
