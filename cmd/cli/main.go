@@ -65,3 +65,15 @@ func fetchGithubEvents(username string) ([]data.GitHubEvent, error) {
 
 	return githubEvents, nil
 }
+
+// printGithubEvents prints a list of GitHub events to the standard output.
+// Each event is printed on a new line prefixed with a hyphen.
+//
+// Parameters:
+//   events ([]data.GitHubEvent): A slice of GitHubEvent objects to be printed.
+func printGithubEvents(events []data.GitHubEvent) {
+	fmt.Println("Output:")
+	for _, event := range events {
+		fmt.Printf("- %s\n", event)
+	}
+}
