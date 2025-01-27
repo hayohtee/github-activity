@@ -23,6 +23,8 @@ func main() {
 		fmt.Fprintln(os.Stderr, err.Error())
 		os.Exit(1)
 	}
+
+	printGithubEvents(events)
 }
 
 // fetchGithubEvents fetches the GitHub events for a specified user.
